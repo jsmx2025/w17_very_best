@@ -17,7 +17,7 @@
       <% @foodvenues.each do |foodvenue| %>
       <tr>
         <td><%= foodvenue.food.name %></td>
-        <td><%= foodvenue.venue_id %></td>
+        <td><%= foodvenue.venue.place %></td>
         <td>
           <a href="/foodvenues/<%= foodvenue.id %>" class="btn btn-primary">Show</a>
           <a href="/foodvenues/<%= foodvenue.id %>/edit" class="btn btn-warning">Edit</a>
