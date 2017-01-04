@@ -47,8 +47,6 @@ class VerybestsController < ApplicationController
 
   def update
     @verybest = Verybest.find(params[:id])
-
-    @verybest.user_id = params[:user_id]
     @verybest.foodvenue_id = params[:foodvenue_id]
 
     save_status = @verybest.save
