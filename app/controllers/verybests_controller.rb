@@ -10,7 +10,8 @@ class VerybestsController < ApplicationController
   end
 
   def index
-    @verybests = Verybest.page(params[:page]).per(10)
+    @q = Verybest.ransack(params[:q])
+    @verybests = @q.result(:distinct => true).includes(:foodvenue, :user).page(params[:page]).per(10)
 
     render("verybests/index.html.erb")
   end
