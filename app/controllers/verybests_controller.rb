@@ -1,4 +1,14 @@
 class VerybestsController < ApplicationController
+  before_action :current_user_must_be_verybest_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_verybest_user
+    verybest = Verybest.find(params[:id])
+
+    unless current_user == verybest.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @verybests = Verybest.all
 

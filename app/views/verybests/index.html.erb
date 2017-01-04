@@ -20,8 +20,11 @@
         <td><%= verybest.foodvenue.food_id %></td>
         <td>
           <a href="/verybests/<%= verybest.id %>" class="btn btn-primary">Show</a>
-          <a href="/verybests/<%= verybest.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_verybest/<%= verybest.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == verybest.user %>
+            <a href="/verybests/<%= verybest.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_verybest/<%= verybest.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
