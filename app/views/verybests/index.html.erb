@@ -16,8 +16,20 @@
 
       <% @verybests.each do |verybest| %>
       <tr>
-        <td><%= verybest.user.name %></td>
-        <td><%= verybest.foodvenue.food_id %></td>
+        <td>
+          <% if verybest.user.present? %>
+            <a href="/users/<%= verybest.user.id %>">
+              <%= verybest.user.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if verybest.foodvenue.present? %>
+            <a href="/foodvenues/<%= verybest.foodvenue.id %>">
+              <%= verybest.foodvenue.food_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/verybests/<%= verybest.id %>" class="btn btn-primary">Show</a>
           
