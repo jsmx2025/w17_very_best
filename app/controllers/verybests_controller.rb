@@ -10,7 +10,7 @@ class VerybestsController < ApplicationController
   end
 
   def index
-    @verybests = Verybest.all
+    @verybests = Verybest.page(params[:page]).per(10)
 
     render("verybests/index.html.erb")
   end
