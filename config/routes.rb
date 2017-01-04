@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Verybest resource:
+  # CREATE
+  get "/verybests/new", :controller => "verybests", :action => "new"
+  post "/create_verybest", :controller => "verybests", :action => "create"
+
+  # READ
+  get "/verybests", :controller => "verybests", :action => "index"
+  get "/verybests/:id", :controller => "verybests", :action => "show"
+
+  # UPDATE
+  get "/verybests/:id/edit", :controller => "verybests", :action => "edit"
+  post "/update_verybest/:id", :controller => "verybests", :action => "update"
+
+  # DELETE
+  get "/delete_verybest/:id", :controller => "verybests", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
